@@ -11,7 +11,7 @@ namespace UnityForge.PropertyDrawers.Editor
     public abstract class RuntimeAnimatorControllerPropertyDrawer<TAttribute> : ComponentFieldPropertyDrawer<TAttribute, Animator>
         where TAttribute : PropertyAttribute
     {
-        public RuntimeAnimatorControllerPropertyDrawer(SerializedPropertyType propertyType) : base(propertyType)
+        public RuntimeAnimatorControllerPropertyDrawer(params SerializedPropertyType[] propertyType) : base(propertyType)
         {
         }
 

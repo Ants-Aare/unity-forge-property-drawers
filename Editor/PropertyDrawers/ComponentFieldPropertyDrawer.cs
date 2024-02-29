@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,9 +13,9 @@ namespace UnityForge.PropertyDrawers.Editor
         where TAttribute : PropertyAttribute
         where TComponent : Component
     {
-        private SerializedPropertyType propertyType_;
+        private SerializedPropertyType[] propertyType_;
 
-        protected ComponentFieldPropertyDrawer(SerializedPropertyType propertyType)
+        protected ComponentFieldPropertyDrawer(params SerializedPropertyType[] propertyType)
         {
             propertyType_ = propertyType;
         }
@@ -23,7 +24,7 @@ namespace UnityForge.PropertyDrawers.Editor
         {
             position = EditorGUI.PrefixLabel(position, label);
 
-            if (property.propertyType != propertyType_)
+            if (propertyType_.All(x => x != property.propertyType))
             {
                 EditorGUI.LabelField(position, String.Format("Error: {0} attribute can be applied only to {1} type", typeof(TAttribute), propertyType_));
                 return;

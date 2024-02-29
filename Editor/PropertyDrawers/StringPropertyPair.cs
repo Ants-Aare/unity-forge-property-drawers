@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace UnityForge.PropertyDrawers.Editor
 {
@@ -17,6 +18,13 @@ namespace UnityForge.PropertyDrawers.Editor
         {
             var clickedItem = (StringPropertyPair)selectedObject;
             clickedItem.property.stringValue = clickedItem.str;
+            clickedItem.property.serializedObject.ApplyModifiedProperties();
+        }
+
+        public static void HandlePairObjectSelectInt(object selectedObject)
+        {
+            var clickedItem = (StringPropertyPair)selectedObject;
+            clickedItem.property.intValue = Animator.StringToHash(clickedItem.str);
             clickedItem.property.serializedObject.ApplyModifiedProperties();
         }
     }
