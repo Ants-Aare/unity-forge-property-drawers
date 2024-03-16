@@ -1,9 +1,9 @@
 {
     "name": "UnityForge.PropertyDrawers.Editor",
+    "rootNamespace": "",
     "references": [
-        "GUID:38fe782b688022a4a98328b1d5900bdb"
+        "UnityForge.PropertyDrawers"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -13,5 +13,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }
